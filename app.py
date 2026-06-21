@@ -100,13 +100,12 @@ def answer(query, history):
     response = generate(query, docs, metas)
     src_note = " · ".join(sources[:3])
     full_response = response + f"\n\n---\n📚 **Sources:** {src_note}"
-    history.append({"role": "user", "content": query})
-    history.append({"role": "assistant", "content": full_response})
+    history = history + [(query, full_response)]
     return "", history
 
 with gr.Blocks(title="Tamil History RAG") as demo:
     gr.HTML('<div style="text-align:center;padding:1.5rem 0 1rem"><h1>🏛️ Tamil History — RAG Knowledge Engine</h1><p>Scholarly Q&A over 5000+ years of Tamil and Tamil Nadu history · Built by <a href="https://github.com/AzariahOnyx" target="_blank">Azariah Onyx</a></p></div>')
-    chatbot = gr.Chatbot(label="", height=480, type="messages")
+    chatbot = gr.Chatbot(label="", height=480)
     with gr.Row():
         query_input = gr.Textbox(placeholder="Ask anything about Tamil history...", show_label=False, scale=5, container=False)
         submit_btn = gr.Button("Ask", variant="primary", scale=1)
