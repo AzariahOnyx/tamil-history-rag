@@ -134,7 +134,7 @@ def answer(query, history):
     response = generate(query, docs, metas)
     src_note = " · ".join(sources[:3])
     full_response = response + f"\n\n---\n📚 **Sources:** {src_note}"
-    history = history + [{"role": "user", "content": query}, {"role": "assistant", "content": full_response}]
+    history = history + [(query, full_response)]
     return "", history
 
 
@@ -146,7 +146,7 @@ with gr.Blocks(title="Tamil History RAG") as demo:
         'Built by <a href="https://github.com/AzariahOnyx" target="_blank">Azariah Onyx</a></p>'
         '</div>'
     )
-    chatbot = gr.Chatbot(label="", height=480, type="messages")
+    chatbot = gr.Chatbot(label="", height=480)
     with gr.Row():
         query_input = gr.Textbox(
             placeholder="Ask anything about Tamil history...",
