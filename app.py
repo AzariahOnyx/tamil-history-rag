@@ -7,7 +7,7 @@ from chromadb.utils import embedding_functions
 from groq import Groq
 
 # ── CONFIG ────────────────────────────────────────────────────────────────
-GROQ_API_KEY = "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"
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 CORPUS_DIR = "./corpus"
 COLLECTION_NAME = "tamil_history"
 TOP_K = 4
