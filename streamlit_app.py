@@ -5,7 +5,11 @@ import math
 import streamlit as st
 from groq import Groq
 
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+try:
+    import streamlit as _st
+    GROQ_API_KEY = _st.secrets.get("GROQ_API_KEY", os.environ.get("GROQ_API_KEY", ""))
+except Exception:
+    GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 CORPUS_DIR = "./corpus"
 TOP_K = 4
 
