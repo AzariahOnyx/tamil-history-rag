@@ -2,7 +2,7 @@
 
 A scholarly RAG (Retrieval-Augmented Generation) system over 5,000+ years of Tamil and Tamil Nadu history.
 
-**Live demo:** [huggingface.co/spaces/Onyx-aj/tamil-history-rag](https://huggingface.co/spaces/Onyx-aj/tamil-history-rag)
+**🚀 Live demo:** [tamil-history-rag-jqwhjvvwppvjyl7zrnkhmi.streamlit.app](https://tamil-history-rag-jqwhjvvwppvjyl7zrnkhmi.streamlit.app/)
 
 ## Corpus
 
@@ -23,9 +23,9 @@ A scholarly RAG (Retrieval-Augmented Generation) system over 5,000+ years of Tam
 
 ## Stack
 
-- **Retrieval:** ChromaDB with default embeddings
+- **Retrieval:** Pure Python TF-IDF cosine similarity (zero heavy dependencies)
 - **Generation:** Groq LLaMA-3.3-70b-versatile
-- **Interface:** Gradio
+- **Interface:** Streamlit
 - **Chunking:** Section-level (H2 header boundaries) for optimal RAG quality
 
 ## The thesis
@@ -40,3 +40,4 @@ Poor IA = poor retrieval = poor answers. This corpus is built to prove the oppos
 ---
 
 Built by [Azariah Onyx](https://github.com/AzariahOnyx) · [Portfolio](https://azariahonyx.github.io) · [LinkedIn](https://linkedin.com/in/onyx-aj)
+
